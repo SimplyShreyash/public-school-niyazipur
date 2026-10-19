@@ -33,7 +33,7 @@ function initStarCanvas() {
   });
 
   const stars = [];
-  const starCount = 85;
+  const starCount = window.innerWidth < 768 ? 38 : 85;
 
   for (let i = 0; i < starCount; i++) {
     stars.push({
@@ -402,8 +402,11 @@ function initFaqAccordion() {
 
 /* ==========================================================================
    7. MODALS (ADMISSION FORM & PAY ONLINE)
+/* ==========================================================================
+   7. MODAL CONTROLLERS (UNIVERSAL RESPONSIVE POPUPS)
    ========================================================================== */
 function initModals() {
+  const allModals = document.querySelectorAll('.modal-overlay');
   const admissionModal = document.getElementById('admission-modal');
   const payOnlineModal = document.getElementById('pay-online-modal');
   const prospectusModal = document.getElementById('prospectus-modal');
@@ -412,7 +415,6 @@ function initModals() {
   const openAdmissionBtns = document.querySelectorAll('.trigger-admission-modal');
   const openPayBtns = document.querySelectorAll('.trigger-pay-modal');
   const openProspectusBtns = document.querySelectorAll('.trigger-prospectus-modal');
-  const closeBtns = document.querySelectorAll('.modal-close-btn');
 
   function openModal(modal) {
     if (modal) {
@@ -424,7 +426,10 @@ function initModals() {
   function closeModal(modal) {
     if (modal) {
       modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
+      const remainingOpen = document.querySelector('.modal-overlay.active');
+      if (!remainingOpen) {
+        document.body.style.overflow = '';
+      }
     }
   }
 
@@ -443,27 +448,32 @@ function initModals() {
     openModal(prospectusModal);
   }));
 
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      closeModal(admissionModal);
-      closeModal(payOnlineModal);
-      closeModal(prospectusModal);
+  // Universal close button delegation
+  document.querySelectorAll('.modal-close-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const parentModal = btn.closest('.modal-overlay');
+      if (parentModal) {
+        closeModal(parentModal);
+      } else {
+        allModals.forEach(m => closeModal(m));
+      }
     });
   });
 
-  // Close on backdrop click
-  window.addEventListener('click', (e) => {
-    if (e.target === admissionModal) closeModal(admissionModal);
-    if (e.target === payOnlineModal) closeModal(payOnlineModal);
-    if (e.target === prospectusModal) closeModal(prospectusModal);
+  // Universal backdrop click to close
+  allModals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
   });
 
-  // Close on ESC key
-  window.addEventListener('keydown', (e) => {
+  // Universal ESC key to close any active modal
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeModal(admissionModal);
-      closeModal(payOnlineModal);
-      closeModal(prospectusModal);
+      allModals.forEach(m => closeModal(m));
     }
   });
 }
@@ -525,31 +535,71 @@ function initEnquiryForms() {
 }
 
 /* ==========================================================================
-   9. MOBILE MENU
+   9. MOBILE MENU & DYNAMIC DRAWER CONTROLLER
    ========================================================================== */
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.mobile-menu-toggle');
   const drawer = document.querySelector('.mobile-nav-drawer');
+  const backdrop = document.querySelector('.mobile-drawer-backdrop');
   const closeBtn = document.querySelector('.mobile-drawer-close');
   const navLinks = document.querySelectorAll('.mobile-nav-links a');
+  const drawerActionBtns = document.querySelectorAll('.mobile-nav-drawer button');
 
   if (!toggleBtn || !drawer) return;
 
-  toggleBtn.addEventListener('click', () => {
+  function openDrawer() {
     drawer.classList.add('open');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openDrawer();
   });
 
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      drawer.classList.remove('open');
-    });
+    closeBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeDrawer);
   }
 
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open');
-    });
+    link.addEventListener('click', closeDrawer);
   });
+
+  drawerActionBtns.forEach(btn => {
+    btn.addEventListener('click', closeDrawer);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+
+  // Touch swipe to dismiss drawer on mobile
+  let touchStartX = 0;
+  drawer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  drawer.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    // Swiping right from inside the right-docked drawer
+    if (touchEndX - touchStartX > 60) {
+      closeDrawer();
+    }
+  }, { passive: true });
 }
 
 

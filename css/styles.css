@@ -2697,8 +2697,195 @@ section {
 
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS (ACCURATE ALIGNMENTS ACROSS DEVICES)
+/* ==========================================================================
+   DYNAMIC MOBILE BOTTOM APP BAR (NATIVE APP EXPERIENCE)
    ========================================================================== */
-@media (max-width: 1140px) {
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(6, 26, 64, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 2px solid var(--vibrant-gold);
+  z-index: 2200;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+  padding: 0 8px;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mob-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #94A3B8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-width: 54px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mob-bar-item i {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.mob-bar-item:hover,
+.mob-bar-item:active {
+  color: var(--vibrant-gold);
+}
+
+.mob-bar-item:active i {
+  transform: scale(0.9);
+}
+
+.mob-bar-item.whatsapp {
+  color: #25D366;
+}
+
+.mob-bar-item.whatsapp:hover,
+.mob-bar-item.whatsapp:active {
+  color: #4ADE80;
+}
+
+.mob-bar-item.primary {
+  color: var(--vibrant-gold);
+  position: relative;
+  top: -12px;
+}
+
+.mob-bar-item.primary .mob-bar-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vibrant-gold) 0%, var(--bright-amber) 100%);
+  color: #061A40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 4px 16px rgba(251, 133, 0, 0.45);
+  border: 3px solid #061A40;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: float-bubble 3s ease-in-out infinite alternate;
+}
+
+@keyframes float-bubble {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.mob-bar-item.primary:active .mob-bar-icon-bubble {
+  transform: scale(0.92);
+}
+
+.mob-bar-item.primary span {
+  font-weight: 800;
+  color: var(--vibrant-gold);
+}
+
+/* ==========================================================================
+   MOBILE DRAWER & BACKDROP
+   ========================================================================== */
+.mobile-drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 27, 56, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2490;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 82%;
+  max-width: 340px;
+  height: 100%;
+  background: #061A40;
+  z-index: 2500;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.4);
+  padding: 26px 22px;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-drawer.open {
+  right: 0;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+
+.mobile-drawer-close {
+  background: none;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mobile-drawer-close:hover {
+  color: var(--crimson);
+}
+
+.mobile-nav-links li {
+  margin-bottom: 14px;
+}
+
+.mobile-nav-links a {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  display: block;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  color: var(--vibrant-gold);
+}
+
+/* ==========================================================================
+   MULTI-DEVICE RESPONSIVE BREAKPOINTS & ADAPTABILITY
+   ========================================================================== */
+@media (max-width: 1200px) {
   .desktop-nav {
     gap: 12px;
   }
@@ -2736,11 +2923,11 @@ section {
   .why-grid,
   .toppers-grid,
   .facilities-grid,
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .testimonials-grid,
   .wings-grid,
-  .process-grid {
+  .process-grid,
+  .houses-grid,
+  .safety-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .calc-grid {
@@ -2759,7 +2946,21 @@ section {
     display: none;
   }
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background: #F8FAFC;
+    color: var(--primary-navy);
+    font-size: 1.4rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-menu-toggle:active {
+    background: #E2E8F0;
   }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2767,7 +2968,7 @@ section {
   .stat-item {
     border-right: none;
     border-bottom: 1px solid var(--border-light);
-    padding: 10px;
+    padding: 12px 10px;
   }
   .stat-item:last-child {
     grid-column: span 2;
@@ -2776,12 +2977,47 @@ section {
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  body {
+    padding-bottom: 74px; /* Space for dynamic mobile bottom bar */
   }
+
+  .mobile-bottom-bar {
+    display: flex;
+  }
+
+  .floating-actions {
+    display: none !important; /* Replaced by bottom bar on mobile */
+  }
+
+  .header-actions .btn-apply-now {
+    display: none; /* Prominently present in bottom app bar and drawer */
+  }
+
+  .top-bar-inner {
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .top-bar-contacts {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.78rem;
+  }
+
+  .top-bar-highlight {
+    display: none; /* Keep top bar clean on mobile */
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 5.5vw, 2.3rem);
+  }
+
   .psat-slabs-grid {
     grid-template-columns: 1fr;
   }
+
   .why-grid,
   .wings-grid,
   .toppers-grid,
@@ -2789,72 +3025,256 @@ section {
   .testimonials-grid,
   .process-grid,
   .notice-board-grid,
-  .contact-grid {
+  .contact-grid,
+  .houses-grid,
+  .safety-grid {
     grid-template-columns: 1fr;
   }
+
+  .fee-tabs-nav {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 4px 6px 12px;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .fee-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fee-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.84rem;
+    padding: 8px 16px;
+  }
+
   .calc-fields-row {
     grid-template-columns: 1fr;
   }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  .floating-enquire-btn span.label-text {
-    display: none;
+
+  /* Prevent iOS automatic input zoom */
+  input, select, textarea {
+    font-size: 16px !important;
   }
-  .floating-enquire-btn {
-    padding: 12px;
-    border-radius: 50%;
+
+  /* Full responsive modal styling */
+  .modal-overlay {
+    padding: 10px;
+    align-items: flex-end; /* Sheet appearance on mobile */
+  }
+
+  .modal-content-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: 24px 18px 30px;
+    max-height: 88vh;
+  }
+
+  .modal-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Mobile Drawer */
-.mobile-nav-drawer {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 82%;
-  max-width: 340px;
-  height: 100%;
-  background: #061A40;
-  z-index: 2500;
-  box-shadow: -5px 0 25px rgba(0,0,0,0.4);
-  padding: 26px 22px;
-  transition: right 0.35s ease;
-  overflow-y: auto;
+@media (max-width: 576px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .site-header {
+    padding: 6px 0;
+  }
+
+  .school-brand {
+    gap: 8px;
+  }
+
+  .school-logo-img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .school-brand-text h1 {
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+
+  .school-location {
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+  }
+
+  .school-admin-by {
+    display: none; /* Keeps header sleek and single-line on small screens */
+  }
+
+  .news-ticker-bar {
+    font-size: 0.76rem;
+    padding: 5px 0;
+  }
+
+  .ticker-label {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+    margin-left: 8px;
+  }
+
+  .hero-section {
+    padding: 38px 0 48px;
+  }
+
+  .hero-admin-tag {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    width: 100%;
+  }
+
+  .hero-features-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-actions a,
+  .hero-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px 10px;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+  }
+
+  .director-card-visual {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .director-portrait-img {
+    height: 300px;
+  }
+
+  .director-floating-badge {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: -14px auto 0;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .director-actions-wrap {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .director-actions-wrap a,
+  .director-actions-wrap button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-options-list {
+    gap: 8px;
+  }
+
+  .quiz-option-btn {
+    font-size: 0.88rem;
+    padding: 10px 12px;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 20px 16px;
+  }
+
+  .udise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
-.mobile-nav-drawer.open {
-  right: 0;
+@media (max-width: 380px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .school-brand-text h1 {
+    font-size: 0.92rem;
+  }
+
+  .mob-bar-item {
+    min-width: 46px;
+    padding: 4px 5px;
+    font-size: 0.62rem;
+  }
+
+  .mob-bar-item.primary .mob-bar-icon-bubble {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+  }
+
+  .udise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
 }
 
-.mobile-drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 14px;
-  margin-bottom: 22px;
-}
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding-bottom: 54px;
+  }
 
-.mobile-drawer-close {
-  background: none;
-  color: #FFFFFF;
-  font-size: 1.8rem;
-}
+  .mobile-bottom-bar {
+    height: 50px;
+  }
 
-.mobile-nav-links li {
-  margin-bottom: 14px;
-}
+  .modal-overlay {
+    align-items: center;
+  }
 
-.mobile-nav-links a {
-  color: #FFFFFF;
-  font-size: 1rem;
-  font-weight: 700;
-  display: block;
-}
-
-.mobile-nav-links a:hover {
-  color: var(--vibrant-gold);
+  .modal-content-card {
+    max-height: 94vh;
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+  }
 }
 
 /* Print Stylesheet */

@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#061A40">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
   <title>Public School, Niyazipur, Arjunpur | Administered by Ajit Kumar Thakur | Admissions Open 2026-27</title>
   <meta name="description" content="Welcome to Public School, Niyazipur, Arjunpur — Administered by Ajit Kumar Thakur. Inspired by Asia's premier schooling models with vibrant campus life, integrated competitive foundation, smart labs, and transparent fee structures.">
 
@@ -136,6 +140,7 @@
       </button>
     </div>
   </div>
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
 
   <main>
     <!-- ==========================================================================
@@ -1598,7 +1603,35 @@
   </footer>
 
   <!-- ==========================================================================
-       FLOATING ACTION BUTTONS (WHATSAPP & QUICK ENQUIRY)
+       MOBILE BOTTOM DYNAMIC ACTION BAR (NATIVE APP EXPERIENCE FOR SMARTPHONES)
+       ========================================================================== -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Navigation Quick Actions">
+    <a href="tel:+919905663403" class="mob-bar-item" title="Call School Office">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919905663403?text=Hello%20Public%20School%20Niyazipur,%20I%20am%20inquiring%20about%20Admissions%202026-27." target="_blank" class="mob-bar-item whatsapp" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <button class="mob-bar-item primary trigger-admission-modal" title="Apply for Admission">
+      <div class="mob-bar-icon-bubble">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <span>Apply</span>
+    </button>
+    <button class="mob-bar-item trigger-psat-quiz-modal" title="Scholarship Practice Quiz">
+      <i class="fa-solid fa-brain"></i>
+      <span>PSAT Quiz</span>
+    </button>
+    <a href="#fees" class="mob-bar-item" title="Fee Structure & Calculator">
+      <i class="fa-solid fa-calculator"></i>
+      <span>Fees</span>
+    </a>
+  </nav>
+
+  <!-- ==========================================================================
+       FLOATING ACTION BUTTONS (WHATSAPP & QUICK ENQUIRY - DESKTOP / TABLET)
        ========================================================================== -->
   <div class="floating-actions">
     <a href="https://wa.me/919905663403?text=Hello%20Public%20School%20Niyazipur%20Arjunpur,%20I%20am%20interested%20in%20Admission%20for%20my%20child." target="_blank" class="floating-whatsapp-btn" title="Chat with us on WhatsApp" aria-label="WhatsApp Chat">
