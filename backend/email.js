@@ -182,7 +182,7 @@ ${directLink}
       <p style="margin: 4px 0;"><strong>Student Name:</strong> ${submission.full_name}</p>
       <p style="margin: 4px 0;"><strong>Status:</strong> Under Review by Admissions Desk</p>
     </div>
-    <p>Our admissions officer under the guidance of <strong>Shri Ajit Kumar Thakur</strong> (Founder &amp; Administrator) will review your query and reach out to you within 24 working hours.</p>
+    <p>Our admissions officer under the guidance of <strong>MR. Ajit Kumar Thakur</strong> (Founder &amp; Administrator) will review your query and reach out to you within 24 working hours.</p>
     <p>For urgent inquiries or campus visits, please contact our helpline:</p>
     <p style="font-size: 16px; font-weight: bold; color: #061A40;">📞 Helpline: <a href="tel:+919905663403" style="color: #0056B3;">+91 99056 63403</a> &bull; ✉️ Email: <a href="mailto:${adminEmail}" style="color: #0056B3;">${adminEmail}</a></p>
   </div>

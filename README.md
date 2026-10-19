@@ -1,5 +1,5 @@
 # Public School Niyazipur
-### Official Institutional Website — Administered by Shri Ajit Kumar Thakur
+### Official Institutional Website — Administered by MR. Ajit Kumar Thakur
 **UDISE+ Code: 10301901109 • Estd. 2011 • Simri Block, Buxar, Bihar (PIN: 802131)**  
 *Inspired by the Narayana Group of Schools Model (Asia's Largest Network)*
 
@@ -14,7 +14,7 @@
    - **Pupil-Teacher Ratio (PTR):** `12 : 1` (Exceeding the RTE standard of 30:1 with 19 appointed teachers for 227+ students).
 
 2. **Administration Spotlight**:
-   - Founder & Headmaster: **Shri Ajit Kumar Thakur**.
+   - Founder & Headmaster: **MR. Ajit Kumar Thakur**.
    - Dedicated **Director's Desk** with authentic portrait photograph, educational vision, and direct contact.
 
 3. **High-Converting Admission System**:
@@ -54,4 +54,4 @@ Then open `http://localhost:3000` in your web browser.
 - **Helpline & WhatsApp:** `+91 99056 63403`
 
 ---
-© 2026 Public School Niyazipur. Administered by Shri Ajit Kumar Thakur.
+© 2026 Public School Niyazipur. Administered by MR. Ajit Kumar Thakur.

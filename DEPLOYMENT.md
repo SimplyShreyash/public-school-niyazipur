@@ -3,7 +3,7 @@
 > **Institution:** Public School, Niyazipur  
 > **Official UDISE+ Code:** 10301901109 (Ministry of Education, Govt. of India Verified)  
 > **Establishment Year:** 2011  
-> **Headmaster & Administrator:** Shri Ajit Kumar Thakur  
+> **Headmaster & Administrator:** MR. Ajit Kumar Thakur  
 > **Official Email:** ajitkumarthakur3066@gmail.com  
 > **Helpline & WhatsApp:** +91 99056 63403  
 > **Campus Location:** Niyazipur, Simri Block, Buxar District, Bihar — PIN: 802131 (GPS: 25.4986°N, 83.7188°E)  
@@ -127,7 +127,7 @@ All key school data is structured cleanly for easy updates:
 - **School Name:** `Public School Niyazipur`
 - **UDISE+ Identifier:** `10301901109` (Ministry of Education, Govt. of India)
 - **Year Established:** `2011` (15 Years of Educational Service)
-- **Headmaster & Administrator:** `Shri Ajit Kumar Thakur`
+- **Headmaster & Administrator:** `MR. Ajit Kumar Thakur`
 - **Official Email:** `ajitkumarthakur3066@gmail.com`
 - **Helpline & WhatsApp:** `+91 99056 63403`
   - WhatsApp chat link format:
@@ -140,4 +140,4 @@ All key school data is structured cleanly for easy updates:
 - **4 Student Houses:** Kalam, Aryabhata, Tagore, and Raman house badges located in `assets/house-*.svg`.
 
 ---
-© 2026 Public School Niyazipur (UDISE+: 10301901109 • Estd. 2011). Simri, Buxar, Bihar. Administered by Shri Ajit Kumar Thakur.
+© 2026 Public School Niyazipur (UDISE+: 10301901109 • Estd. 2011). Simri, Buxar, Bihar. Administered by MR. Ajit Kumar Thakur.

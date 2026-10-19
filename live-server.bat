@@ -2,7 +2,7 @@
 title Public School Niyazipur Live Server
 echo ========================================================
 echo  Launching Live Server for Public School, Niyazipur
-echo  Administered by Shri Ajit Kumar Thakur
+echo  Administered by MR. Ajit Kumar Thakur
 echo ========================================================
 echo.
 echo Starting hot-reloading server on port 5500...

@@ -552,7 +552,7 @@ function initEnquiryForms() {
                   <p><strong>Seeking Admission:</strong> ${grade || 'General Inquiry'}</p>
                   <p><strong>Submission Time:</strong> ${submissionDate}</p>
                   <p style="margin-top: 8px; font-size: 0.84rem; color: #10B981; font-weight: 700;">
-                    <i class="fa-solid fa-circle-check"></i> Recorded in School Administration Database. Alert sent to Shri Ajit Kumar Thakur.
+                    <i class="fa-solid fa-circle-check"></i> Recorded in School Administration Database. Alert sent to MR. Ajit Kumar Thakur.
                   </p>
                 </div>
               `;
@@ -585,7 +585,7 @@ function initEnquiryForms() {
                 <p><strong>Student Name:</strong> ${name}</p>
                 <p><strong>Parent Contact:</strong> ${phone}</p>
                 <p><strong>Campus:</strong> Niyazipur, Simri Block, Buxar (802131) • UDISE+: 10301901109</p>
-                <p><strong>Administration:</strong> Shri Ajit Kumar Thakur (Founder &amp; Administrator)</p>
+                <p><strong>Administration:</strong> MR. Ajit Kumar Thakur (Founder &amp; Administrator)</p>
               </div>
             `;
           }
@@ -738,7 +738,7 @@ function initPsatModule() {
               <strong>Exam Instructions:</strong><br>
               1. Candidate must report 30 minutes before exam time with this Admit Card.<br>
               2. Bring Blue/Black ballpoint pens.<br>
-              3. Results and scholarship awards will be declared by Administrator Shri Ajit Kumar Thakur within 7 working days.
+              3. Results and scholarship awards will be declared by Administrator MR. Ajit Kumar Thakur within 7 working days.
             </div>
 
             <div class="receipt-auth-footer">
@@ -808,7 +808,7 @@ function initFeeReceiptGenerator() {
               <div class="receipt-school-meta" style="text-align: center; flex-grow: 1;">
                 <h2>PUBLIC SCHOOL, NIYAZIPUR</h2>
                 <p>Niyazipur, Simri Block, Buxar District, Bihar (PIN: 802131) • UDISE+: 10301901109 • Estd. 2011</p>
-                <p>Administered by: <strong>Shri Ajit Kumar Thakur</strong></p>
+                <p>Administered by: <strong>MR. Ajit Kumar Thakur</strong></p>
                 <div style="font-weight: 800; font-size: 0.95rem; color: #0056B3; margin-top: 2px;">OFFICIAL STUDENT FEE RECEIPT</div>
               </div>
             </div>
@@ -883,9 +883,9 @@ function initFeeReceiptGenerator() {
 const campusFloors = {
   ground: {
     title: 'Ground Floor: Administrative Block & Kindergarten',
-    desc: 'The welcoming entrance with administrative reception, Director Shri Ajit Kumar Thakur desk, infirmary, and safe child-friendly kindergarten playrooms.',
+    desc: 'The welcoming entrance with administrative reception, Director MR. Ajit Kumar Thakur desk, infirmary, and safe child-friendly kindergarten playrooms.',
     spots: [
-      { name: 'Director & Admin Suite', desc: 'Direct accessibility for parents and students to meet Shri Ajit Kumar Thakur.' },
+      { name: 'Director & Admin Suite', desc: 'Direct accessibility for parents and students to meet MR. Ajit Kumar Thakur.' },
       { name: 'Montessori Kindergarten Zone', desc: 'Bright playway classrooms with educational toys and soft flooring.' },
       { name: 'Medical Health Clinic', desc: 'First-aid post with certified nursing attendant and regular health checks.' }
     ]
