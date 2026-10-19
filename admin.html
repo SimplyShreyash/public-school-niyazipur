@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Admin Dashboard &bull; Public School Niyazipur Form Submissions</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --navy: #061A40;
+      --navy-light: #0B2559;
+      --navy-border: #1B3B7A;
+      --blue: #0056B3;
+      --gold: #FFB703;
+      --amber: #FB8500;
+      --emerald: #10B981;
+      --crimson: #EF4444;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-500: #64748B;
+      --slate-800: #1E293B;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: var(--slate-100); color: var(--slate-800); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* Top Navbar */
+    .admin-navbar {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+    }
+    .admin-brand { display: flex; align-items: center; gap: 12px; }
+    .admin-brand img { width: 40px; height: 40px; border-radius: 50%; }
+    .admin-brand h1 { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; }
+    .admin-brand h1 span { color: var(--gold); }
+    .admin-user-nav { display: flex; align-items: center; gap: 16px; }
+    .admin-badge { background: rgba(255, 183, 3, 0.15); border: 1px solid var(--gold); color: var(--gold); font-size: 0.76rem; font-weight: 800; padding: 4px 12px; border-radius: 9999px; }
+    .btn-logout { background: rgba(239, 68, 68, 0.15); color: #FCA5A5; border: 1px solid #EF4444; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-logout:hover { background: #EF4444; color: #FFFFFF; }
+
+    /* Main Container */
+    .admin-main { flex: 1; max-width: 1300px; width: 100%; margin: 0 auto; padding: 28px 20px; }
+
+    /* Metric Cards */
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 26px; }
+    .metric-card { background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); }
+    .metric-info h3 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--slate-500); margin-bottom: 6px; }
+    .metric-info .metric-num { font-family: 'Outfit', sans-serif; font-size: 1.85rem; font-weight: 900; color: var(--navy); }
+    .metric-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .metric-card.total .metric-icon { background: #E0F2FE; color: var(--blue); }
+    .metric-card.new .metric-icon { background: #FEF3C7; color: var(--amber); }
+    .metric-card.review .metric-icon { background: #EDE9FE; color: #7C3AED; }
+    .metric-card.resolved .metric-icon { background: #D1FAE5; color: var(--emerald); }
+
+    /* Action & Filter Bar */
+    .toolbar-card { background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; box-shadow: var(--shadow-sm); }
+    .search-filter-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; flex: 1; }
+    .search-input-wrap { position: relative; min-width: 240px; flex: 1; max-width: 380px; }
+    .search-input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--slate-500); font-size: 0.9rem; }
+    .search-input { width: 100%; padding: 9px 14px 9px 38px; border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+    .search-input:focus { border-color: var(--blue); }
+    .filter-select { padding: 9px 16px; border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 600; color: var(--slate-800); background: #FFFFFF; outline: none; cursor: pointer; }
+    .filter-select:focus { border-color: var(--blue); }
+    
+    .btn-action { padding: 9px 18px; border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; border: none; transition: all 0.2s; }
+    .btn-action.export { background: var(--emerald); color: #FFFFFF; }
+    .btn-action.export:hover { background: #059669; }
+    .btn-action.refresh { background: var(--slate-100); color: var(--slate-800); border: 1px solid var(--slate-200); }
+    .btn-action.refresh:hover { background: var(--slate-200); }
+
+    /* Data Table Card */
+    .table-card { background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; }
+    .table-responsive { width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    thead tr { background: #F8FAFC; border-bottom: 2px solid var(--slate-200); }
+    th { padding: 14px 18px; font-size: 0.78rem; font-weight: 800; color: var(--slate-500); text-transform: uppercase; letter-spacing: 0.6px; }
+    td { padding: 16px 18px; border-bottom: 1px solid var(--slate-200); vertical-align: middle; }
+    tbody tr:hover { background: #F8FAFC; cursor: pointer; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* Status Badges */
+    .status-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 9999px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; }
+    .status-badge.New, .status-badge.Pending { background: #FEF3C7; color: #B45309; }
+    .status-badge.In-Review, .status-badge.Contacted { background: #DBEAFE; color: #1E40AF; }
+    .status-badge.Resolved { background: #D1FAE5; color: #065F46; }
+
+    /* Details Drawer / Modal */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 26, 64, 0.6); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+    .modal-overlay.active { display: flex; }
+    .modal-card { background: #FFFFFF; border-radius: var(--radius-lg); width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-lg); animation: pop 0.25s ease; }
+    @keyframes pop { 0% { transform: scale(0.95); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    .modal-header { padding: 20px 24px; background: var(--navy); color: #FFFFFF; display: flex; justify-content: space-between; align-items: center; }
+    .modal-header h3 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; }
+    .modal-close { background: none; border: none; color: #FFFFFF; font-size: 1.5rem; cursor: pointer; line-height: 1; }
+    .modal-body { padding: 24px; }
+    .detail-row { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 0.9rem; padding-bottom: 10px; border-bottom: 1px dotted var(--slate-200); }
+    .detail-label { color: var(--slate-500); font-weight: 600; }
+    .detail-val { font-weight: 700; color: var(--navy); }
+    .message-container { background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); padding: 16px; margin: 20px 0; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; color: #334155; }
+    .modal-footer { padding: 18px 24px; background: #F8FAFC; border-top: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .status-dropdown { padding: 8px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--slate-200); font-weight: 700; font-size: 0.88rem; outline: none; }
+    .btn-delete { background: rgba(239, 68, 68, 0.1); color: var(--crimson); border: 1px solid rgba(239, 68, 68, 0.3); padding: 8px 16px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+    .btn-delete:hover { background: var(--crimson); color: #FFFFFF; }
+
+    /* Login Screen Modal */
+    .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #021B38 0%, #003566 100%); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .login-card { background: #FFFFFF; border-radius: var(--radius-lg); width: 100%; max-width: 420px; padding: 36px 30px; box-shadow: var(--shadow-lg); text-align: center; }
+    .login-logo { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 16px; }
+    .login-card h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .login-card p { font-size: 0.88rem; color: var(--slate-500); margin-bottom: 24px; }
+    .form-group { text-align: left; margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--slate-800); margin-bottom: 6px; }
+    .form-control { width: 100%; padding: 11px 14px; border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); font-size: 0.92rem; outline: none; }
+    .form-control:focus { border-color: var(--blue); }
+    .btn-login { width: 100%; background: linear-gradient(135deg, #FFB703, #FB8500); color: var(--navy); border: none; padding: 13px; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 14px rgba(251, 133, 0, 0.35); transition: transform 0.2s; }
+    .btn-login:hover { transform: translateY(-2px); }
+    .login-alert { background: #FEE2E2; border: 1px solid #EF4444; color: #991B1B; padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.84rem; font-weight: 600; margin-bottom: 18px; display: none; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .toolbar-card { flex-direction: column; align-items: stretch; }
+      .search-filter-group { flex-direction: column; align-items: stretch; }
+      .search-input-wrap { max-width: 100%; }
+      .admin-navbar { padding: 12px 16px; }
+      .admin-main { padding: 16px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       LOGIN OVERLAY
+       ========================================================================== -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-card">
+      <img src="assets/logo.svg" alt="Public School Logo" class="login-logo">
+      <h2>Admin Portal</h2>
+      <p>Sign in to manage incoming form submissions &amp; inquiries</p>
+      
+      <div id="login-error" class="login-alert"></div>
+      
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="admin-email">Admin Email Address</label>
+          <input type="email" id="admin-email" class="form-control" required placeholder="admin@publicschoolniyazipur.in" value="admin@publicschoolniyazipur.in">
+        </div>
+        <div class="form-group">
+          <label for="admin-password">Secure Password</label>
+          <input type="password" id="admin-password" class="form-control" required placeholder="••••••••" value="Admin@2026">
+        </div>
+        <button type="submit" id="btn-login-submit" class="btn-login">
+          <i class="fa-solid fa-lock"></i> Access Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <header class="admin-navbar">
+    <div class="admin-brand">
+      <img src="assets/logo.svg" alt="Logo">
+      <h1>PUBLIC SCHOOL <span>NIYAZIPUR</span> &bull; LEADS PORTAL</h1>
+    </div>
+    <div class="admin-user-nav">
+      <span class="admin-badge"><i class="fa-solid fa-shield-halved"></i> Admin Verified</span>
+      <button id="btn-logout" class="btn-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN DASHBOARD
+       ========================================================================== -->
+  <main class="admin-main">
+    
+    <!-- Metrics Section -->
+    <div class="metrics-grid">
+      <div class="metric-card total">
+        <div class="metric-info">
+          <h3>Total Submissions</h3>
+          <div class="metric-num" id="stat-total">0</div>
+        </div>
+        <div class="metric-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+      </div>
+      <div class="metric-card new">
+        <div class="metric-info">
+          <h3>New / Unread</h3>
+          <div class="metric-num" id="stat-new" style="color: var(--amber);">0</div>
+        </div>
+        <div class="metric-icon"><i class="fa-solid fa-bell"></i></div>
+      </div>
+      <div class="metric-card review">
+        <div class="metric-info">
+          <h3>In Review</h3>
+          <div class="metric-num" id="stat-review" style="color: #7C3AED;">0</div>
+        </div>
+        <div class="metric-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      </div>
+      <div class="metric-card resolved">
+        <div class="metric-info">
+          <h3>Resolved Leads</h3>
+          <div class="metric-num" id="stat-resolved" style="color: var(--emerald);">0</div>
+        </div>
+        <div class="metric-icon"><i class="fa-solid fa-circle-check"></i></div>
+      </div>
+    </div>
+
+    <!-- Filter & Toolbar -->
+    <div class="toolbar-card">
+      <div class="search-filter-group">
+        <div class="search-input-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="search-input" class="search-input" placeholder="Search by name, email, phone, message...">
+        </div>
+        <select id="status-filter" class="filter-select">
+          <option value="">All Statuses</option>
+          <option value="Pending">Status: Pending</option>
+          <option value="Contacted">Status: Contacted</option>
+          <option value="In Review">Status: In Review</option>
+          <option value="Resolved">Status: Resolved</option>
+          <option value="New">Status: New</option>
+        </select>
+        <select id="sort-order" class="filter-select">
+          <option value="desc">Newest First</option>
+          <option value="asc">Oldest First</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button id="btn-refresh" class="btn-action refresh" title="Refresh list"><i class="fa-solid fa-rotate"></i> Refresh</button>
+        <button id="btn-export-csv" class="btn-action export" title="Download CSV Spreadsheet"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+      </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-card">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Applicant / Sender</th>
+              <th>Contact Details</th>
+              <th>Subject</th>
+              <th>Message Preview</th>
+              <th>Date &amp; Time (IST)</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="submissions-tbody">
+            <tr>
+              <td colspan="8" style="text-align: center; padding: 40px; color: var(--slate-500);">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+                <div>Loading submissions...</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       SUBMISSION DETAILS MODAL
+       ========================================================================== -->
+  <div id="details-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-lead-title">Submission Details</h3>
+        <button class="modal-close" id="btn-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="detail-row">
+          <span class="detail-label">Lead ID</span>
+          <span class="detail-val" id="modal-id">#0</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Full Name</span>
+          <span class="detail-val" id="modal-name">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Email Address</span>
+          <span class="detail-val" id="modal-email">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Phone Number</span>
+          <span class="detail-val" id="modal-phone">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Subject / Purpose</span>
+          <span class="detail-val" id="modal-subject">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Submission Date & Time</span>
+          <span class="detail-val" id="modal-date">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Client IP &amp; Info</span>
+          <span class="detail-val" id="modal-ip" style="font-size: 0.8rem; font-weight: normal; color: var(--slate-500);">-</span>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.5px;">Message / Submitted Instructions:</h4>
+          <div class="message-container" id="modal-message"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--slate-500);">Update Status:</label>
+          <select id="modal-status-select" class="status-dropdown">
+            <option value="Pending">Pending</option>
+            <option value="Contacted">Contacted</option>
+            <option value="In Review">In Review</option>
+            <option value="Resolved">Resolved</option>
+            <option value="New">New</option>
+          </select>
+        </div>
+        <button id="btn-delete-record" class="btn-delete"><i class="fa-solid fa-trash-can"></i> Delete Lead</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Controller Script -->
+  <script>
+    let activeToken = localStorage.getItem('psn_admin_jwt');
+    let currentSubmissions = [];
+    let activeSubmissionId = null;
+
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginForm = document.getElementById('admin-login-form');
+    const loginError = document.getElementById('login-error');
+    const tbody = document.getElementById('submissions-tbody');
+    const searchInput = document.getElementById('search-input');
+    const statusFilter = document.getElementById('status-filter');
+    const sortOrder = document.getElementById('sort-order');
+    const detailsModal = document.getElementById('details-modal');
+
+    // Auth check
+    if (activeToken) {
+      loginOverlay.style.display = 'none';
+      loadDashboard();
+    } else {
+      loginOverlay.style.display = 'flex';
+    }
+
+    // Login Form Submit
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginError.style.display = 'none';
+      const email = document.getElementById('admin-email').value;
+      const password = document.getElementById('admin-password').value;
+      const btn = document.getElementById('btn-login-submit');
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Authenticating...';
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+
+        if (data.success && data.token) {
+          activeToken = data.token;
+          localStorage.setItem('psn_admin_jwt', activeToken);
+          loginOverlay.style.display = 'none';
+          loadDashboard();
+        } else {
+          loginError.textContent = data.error || 'Invalid credentials. Please verify.';
+          loginError.style.display = 'block';
+        }
+      } catch (err) {
+        loginError.textContent = 'Server error during authentication: ' + err.message;
+        loginError.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-lock"></i> Access Dashboard';
+      }
+    });
+
+    // Logout
+    document.getElementById('btn-logout').addEventListener('click', () => {
+      localStorage.removeItem('psn_admin_jwt');
+      activeToken = null;
+      loginOverlay.style.display = 'flex';
+    });
+
+    // Load Metrics & Submissions
+    async function loadDashboard() {
+      loadStats();
+      loadSubmissions();
+    }
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/admin/stats', {
+          headers: { 'Authorization': `Bearer ${activeToken}` }
+        });
+        if (res.status === 401) return handleAuthExpiry();
+        const data = await res.json();
+        if (data.success && data.stats) {
+          document.getElementById('stat-total').textContent = data.stats.total;
+          document.getElementById('stat-new').textContent = data.stats.new;
+          document.getElementById('stat-review').textContent = data.stats.inReview;
+          document.getElementById('stat-resolved').textContent = data.stats.resolved;
+        }
+      } catch (err) {
+        console.error('Failed to load stats:', err);
+      }
+    }
+
+    async function loadSubmissions() {
+      const q = encodeURIComponent(searchInput.value.trim());
+      const status = encodeURIComponent(statusFilter.value);
+      const sort = encodeURIComponent(sortOrder.value);
+
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="8" style="text-align:center; padding: 40px; color: var(--slate-500);">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 8px;"></i>
+            <div>Loading records...</div>
+          </td>
+        </tr>
+      `;
+
+      try {
+        const res = await fetch(`/api/admin/submissions?search=${q}&status=${status}&sort=${sort}`, {
+          headers: { 'Authorization': `Bearer ${activeToken}` }
+        });
+
+        if (res.status === 401) return handleAuthExpiry();
+        const data = await res.json();
+
+        if (data.success) {
+          currentSubmissions = data.submissions || [];
+          renderSubmissionsTable(currentSubmissions);
+        } else {
+          tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 30px; color: #DC2626;">Failed: ${data.error}</td></tr>`;
+        }
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 30px; color: #DC2626;">Network error: ${err.message}</td></tr>`;
+      }
+    }
+
+    function renderSubmissionsTable(items) {
+      if (!items || items.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" style="text-align:center; padding: 48px; color: var(--slate-500);">
+              <i class="fa-solid fa-inbox" style="font-size: 2rem; color: #CBD5E1; margin-bottom: 10px;"></i>
+              <div style="font-size: 1rem; font-weight: 700; color: var(--navy);">No form submissions found</div>
+              <div style="font-size: 0.85rem;">Incoming queries submitted from the website will display here in real-time.</div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = items.map(s => {
+        const dateStr = new Date(s.created_at).toLocaleString('en-IN', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        });
+        const statusClass = s.status.replace(/\s+/g, '-');
+        const previewMsg = s.message.length > 55 ? s.message.substring(0, 55) + '...' : s.message;
+
+        return `
+          <tr onclick="openSubmissionDetails(${s.id})">
+            <td style="font-weight: 800; color: var(--navy);">#${s.id}</td>
+            <td>
+              <div style="font-weight: 700; color: var(--navy);">${escapeHtml(s.full_name)}</div>
+            </td>
+            <td>
+              <div><a href="mailto:${escapeHtml(s.email)}" onclick="event.stopPropagation();" style="color: var(--blue); text-decoration:none;"><i class="fa-solid fa-envelope"></i> ${escapeHtml(s.email)}</a></div>
+              ${s.phone ? `<div style="font-size: 0.82rem; margin-top: 2px;"><a href="tel:${escapeHtml(s.phone)}" onclick="event.stopPropagation();" style="color: var(--slate-500); text-decoration:none;"><i class="fa-solid fa-phone"></i> ${escapeHtml(s.phone)}</a></div>` : ''}
+            </td>
+            <td><span style="font-weight: 600; font-size: 0.84rem; color: var(--slate-500);">${escapeHtml(s.subject || 'Inquiry')}</span></td>
+            <td style="max-width: 260px; color: #475569;" title="${escapeHtml(s.message)}">${escapeHtml(previewMsg)}</td>
+            <td style="font-size: 0.82rem; color: var(--slate-500); white-space: nowrap;">${dateStr}</td>
+            <td><span class="status-badge ${statusClass}">● ${s.status}</span></td>
+            <td>
+              <button class="btn-action refresh" style="padding: 5px 10px; font-size: 0.78rem;" onclick="event.stopPropagation(); openSubmissionDetails(${s.id});">
+                <i class="fa-solid fa-eye"></i> View
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Modal details
+    window.openSubmissionDetails = function(id) {
+      const sub = currentSubmissions.find(s => s.id === id);
+      if (!sub) return;
+
+      activeSubmissionId = sub.id;
+      document.getElementById('modal-lead-title').textContent = `Lead #${sub.id}: ${sub.full_name}`;
+      document.getElementById('modal-id').textContent = `#${sub.id}`;
+      document.getElementById('modal-name').textContent = sub.full_name;
+      document.getElementById('modal-email').innerHTML = `<a href="mailto:${escapeHtml(sub.email)}" style="color: var(--blue);">${escapeHtml(sub.email)}</a>`;
+      document.getElementById('modal-phone').innerHTML = sub.phone ? `<a href="tel:${escapeHtml(sub.phone)}" style="color: var(--blue);">${escapeHtml(sub.phone)}</a>` : 'Not provided';
+      document.getElementById('modal-subject').textContent = sub.subject || 'General Inquiry';
+      document.getElementById('modal-date').textContent = new Date(sub.created_at).toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'medium' });
+      document.getElementById('modal-ip').textContent = `IP: ${sub.ip_address || 'Unknown'} | Device: ${sub.user_agent ? sub.user_agent.substring(0, 40) + '...' : 'Unknown'}`;
+      document.getElementById('modal-message').textContent = sub.message;
+      document.getElementById('modal-status-select').value = sub.status;
+
+      detailsModal.classList.add('active');
+    };
+
+    // Close details modal
+    document.getElementById('btn-modal-close').addEventListener('click', () => {
+      detailsModal.classList.remove('active');
+    });
+    detailsModal.addEventListener('click', (e) => {
+      if (e.target === detailsModal) detailsModal.classList.remove('active');
+    });
+
+    // Update status from modal
+    document.getElementById('modal-status-select').addEventListener('change', async (e) => {
+      if (!activeSubmissionId) return;
+      const newStatus = e.target.value;
+
+      try {
+        const res = await fetch(`/api/admin/submissions/${activeSubmissionId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${activeToken}`
+          },
+          body: JSON.stringify({ status: newStatus })
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadDashboard();
+        } else {
+          alert('Status update failed: ' + data.error);
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    });
+
+    // Delete submission
+    document.getElementById('btn-delete-record').addEventListener('click', async () => {
+      if (!activeSubmissionId) return;
+      if (!confirm(`Are you sure you want to permanently delete lead #${activeSubmissionId}?`)) return;
+
+      try {
+        const res = await fetch(`/api/admin/submissions/${activeSubmissionId}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${activeToken}` }
+        });
+        const data = await res.json();
+        if (data.success) {
+          detailsModal.classList.remove('active');
+          loadDashboard();
+        } else {
+          alert('Delete failed: ' + data.error);
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    });
+
+    // Filters and Search listeners
+    let debounceTimer;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(loadSubmissions, 300);
+    });
+    statusFilter.addEventListener('change', loadSubmissions);
+    sortOrder.addEventListener('change', loadSubmissions);
+    document.getElementById('btn-refresh').addEventListener('click', loadDashboard);
+
+    // Export CSV
+    document.getElementById('btn-export-csv').addEventListener('click', async () => {
+      try {
+        const res = await fetch('/api/admin/export', {
+          headers: { 'Authorization': `Bearer ${activeToken}` }
+        });
+        if (res.status === 401) return handleAuthExpiry();
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `public-school-leads-${new Date().toISOString().slice(0,10)}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      } catch (err) {
+        alert('Export failed: ' + err.message);
+      }
+    });
+
+    function handleAuthExpiry() {
+      localStorage.removeItem('psn_admin_jwt');
+      activeToken = null;
+      loginOverlay.style.display = 'flex';
+      loginError.textContent = 'Session expired. Please log in again.';
+      loginError.style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>

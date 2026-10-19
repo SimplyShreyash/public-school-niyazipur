@@ -3730,3 +3730,158 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   MANDATORY PUBLIC DISCLOSURE (APPENDIX IX COMPLIANCE)
+   ========================================================================== */
+.disclosure-section {
+  padding: 80px 0;
+  background: #F8FAFC;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.disclosure-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.disclosure-card-header {
+  background: var(--primary-navy);
+  color: #FFFFFF;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 3px solid var(--vibrant-gold);
+}
+
+.disclosure-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.disclosure-card-header h3 i {
+  color: var(--vibrant-gold);
+}
+
+.disclosure-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.disclosure-table th {
+  background: #F1F5F9;
+  color: var(--primary-navy);
+  font-weight: 800;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.disclosure-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  color: var(--body-text);
+  vertical-align: middle;
+}
+
+.disclosure-table tr:hover {
+  background: #F8FAFC;
+}
+
+.disclosure-table tr:last-child td {
+  border-bottom: none;
+}
+
+.doc-download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--royal-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.doc-download-pill:hover {
+  background: var(--royal-blue);
+  color: #FFFFFF;
+}
+
+.doc-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--emerald);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.pocso-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 24px;
+}
+
+.pocso-card {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: left;
+}
+
+.pocso-card h4 {
+  font-family: var(--font-heading);
+  color: var(--primary-navy);
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pocso-card p {
+  font-size: 0.86rem;
+  color: var(--body-text);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.pocso-contact-line {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 992px) {
+  .pocso-grid {
+    grid-template-columns: 1fr;
+  }
+}

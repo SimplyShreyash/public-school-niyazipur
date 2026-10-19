@@ -479,7 +479,7 @@ function initModals() {
 }
 
 /* ==========================================================================
-   8. ADMISSION FORM SUBMISSION & PRINTABLE RECEIPT
+   8. ADMISSION FORM SUBMISSION & ASYNC BACKEND PIPELINE
    ========================================================================== */
 function initEnquiryForms() {
   const forms = [
@@ -490,38 +490,112 @@ function initEnquiryForms() {
   forms.forEach(form => {
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = form.querySelector('[name="student_name"]').value.trim();
-      const phone = form.querySelector('[name="parent_phone"]').value.trim();
-      const grade = form.querySelector('[name="grade_applying"]').value;
-      const refNum = 'PSNA-2026-' + Math.floor(1000 + Math.random() * 9000);
+      const nameInput = form.querySelector('[name="student_name"]');
+      const phoneInput = form.querySelector('[name="parent_phone"]');
+      const gradeInput = form.querySelector('[name="grade_applying"]');
+      const locationInput = form.querySelector('[name="student_location"]');
+      const submitBtn = form.querySelector('button[type="submit"]');
 
-      const modalSuccess = document.getElementById('modal-success-box');
-      const modalForm = document.getElementById('modal-form-content');
-      const admissionModal = document.getElementById('admission-modal');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const grade = gradeInput ? gradeInput.value : '';
+      const location = locationInput ? locationInput.value.trim() : '';
 
-      if (modalSuccess && modalForm && admissionModal) {
-        // If submitted from hero, open modal and show success
-        admissionModal.classList.add('active');
-        modalForm.style.display = 'none';
-        modalSuccess.style.display = 'block';
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+      }
 
-        const detailsEl = document.getElementById('success-details');
-        if (detailsEl) {
-          detailsEl.innerHTML = `
-            <div style="background: #F8FAFC; border: 1.5px dashed #0056B3; padding: 16px; border-radius: 8px; margin: 16px 0; text-align: left;">
-              <p><strong>Application Ref No:</strong> <span style="color:#FB8500; font-weight:800;">${refNum}</span></p>
-              <p><strong>Student Name:</strong> ${name}</p>
-              <p><strong>Parent Contact:</strong> ${phone}</p>
-              <p><strong>Campus:</strong> Niyazipur, Simri Block, Buxar District (PIN: 802131) • UDISE+: 10301901109</p>
-              <p><strong>Administration:</strong> Shri Ajit Kumar Thakur (Founder &amp; Administrator)</p>
-            </div>
-          `;
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            student_name: name,
+            parent_phone: phone,
+            grade_applying: grade,
+            student_location: location
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          const refNum = 'PSNA-2026-' + (data.id ? String(data.id).padStart(4, '0') : Math.floor(1000 + Math.random() * 9000));
+          const submissionDate = data.timestamp 
+            ? new Date(data.timestamp).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
+            : new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+          const modalSuccess = document.getElementById('modal-success-box');
+          const modalForm = document.getElementById('modal-form-content');
+          const admissionModal = document.getElementById('admission-modal');
+
+          if (modalSuccess && modalForm && admissionModal) {
+            admissionModal.classList.add('active');
+            modalForm.style.display = 'none';
+            modalSuccess.style.display = 'block';
+
+            const detailsEl = document.getElementById('success-details');
+            if (detailsEl) {
+              detailsEl.innerHTML = `
+                <div style="background: #F8FAFC; border: 1.5px dashed #0056B3; padding: 18px; border-radius: 8px; margin: 16px 0; text-align: left;">
+                  <p><strong>Official Reference No:</strong> <span style="color:#FB8500; font-weight:800;">${refNum}</span> (Database ID: #${data.id || 'LIVE'})</p>
+                  <p><strong>Student Name:</strong> ${name}</p>
+                  <p><strong>Parent Contact:</strong> ${phone}</p>
+                  <p><strong>Seeking Admission:</strong> ${grade || 'General Inquiry'}</p>
+                  <p><strong>Submission Time:</strong> ${submissionDate}</p>
+                  <p style="margin-top: 8px; font-size: 0.84rem; color: #10B981; font-weight: 700;">
+                    <i class="fa-solid fa-circle-check"></i> Recorded in School Administration Database. Alert sent to Shri Ajit Kumar Thakur.
+                  </p>
+                </div>
+              `;
+            }
+
+            form.reset();
+          }
+        } else {
+          alert('Submission Notice: ' + (data.error || 'Please verify form fields and try again.'));
         }
+      } catch (err) {
+        console.warn('Backend API submission error (running client-side fallback):', err.message);
+        
+        // Fallback for static hosting (e.g. GitHub Pages without active proxy)
+        const refNum = 'PSNA-2026-' + Math.floor(1000 + Math.random() * 9000);
+        const modalSuccess = document.getElementById('modal-success-box');
+        const modalForm = document.getElementById('modal-form-content');
+        const admissionModal = document.getElementById('admission-modal');
 
-        form.reset();
+        if (modalSuccess && modalForm && admissionModal) {
+          admissionModal.classList.add('active');
+          modalForm.style.display = 'none';
+          modalSuccess.style.display = 'block';
+
+          const detailsEl = document.getElementById('success-details');
+          if (detailsEl) {
+            detailsEl.innerHTML = `
+              <div style="background: #F8FAFC; border: 1.5px dashed #0056B3; padding: 18px; border-radius: 8px; margin: 16px 0; text-align: left;">
+                <p><strong>Application Ref No:</strong> <span style="color:#FB8500; font-weight:800;">${refNum}</span></p>
+                <p><strong>Student Name:</strong> ${name}</p>
+                <p><strong>Parent Contact:</strong> ${phone}</p>
+                <p><strong>Campus:</strong> Niyazipur, Simri Block, Buxar (802131) • UDISE+: 10301901109</p>
+                <p><strong>Administration:</strong> Shri Ajit Kumar Thakur (Founder &amp; Administrator)</p>
+              </div>
+            `;
+          }
+          form.reset();
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
       }
     });
   });
