@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldRing3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#4C1D95"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad3)" stroke="url(#goldRing3)" stroke-width="6"/>
+  <circle cx="100" cy="85" r="38" fill="#F8D7B8"/>
+  <!-- Spiky / modern hair -->
+  <path d="M 64,75 C 60,50 75,32 95,30 C 105,30 115,28 125,36 C 135,45 138,60 136,75 C 130,55 110,48 100,50 C 90,48 72,55 64,75 Z" fill="#172554"/>
+  <!-- Eyes & confident smile -->
+  <circle cx="86" cy="82" r="3.5" fill="#1E293B"/>
+  <circle cx="114" cy="82" r="3.5" fill="#1E293B"/>
+  <path d="M 92,97 Q 100,105 108,97" fill="none" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Uniform -->
+  <path d="M 40,175 C 45,130 65,115 100,118 C 135,115 155,130 160,175 Z" fill="#FFFFFF"/>
+  <polygon points="94,120 106,120 108,155 100,165 92,155" fill="#F59E0B"/>
+  <path d="M 65,135 L 85,175 L 45,175 Z" fill="#1E3A8A"/>
+  <path d="M 135,135 L 115,175 L 155,175 Z" fill="#1E3A8A"/>
+  <!-- Medal -->
+  <circle cx="100" cy="155" r="9" fill="url(#goldRing3)" stroke="#78350F" stroke-width="1.5"/>
+  <text x="100" y="159" font-family="Arial" font-size="9" font-weight="900" fill="#78350F" text-anchor="middle">AIR</text>
+</svg>

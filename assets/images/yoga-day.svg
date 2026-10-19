@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="yogaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#yogaGrad)"/>
+  <!-- Rising Morning Sun -->
+  <circle cx="200" cy="110" r="50" fill="#FFFBEB" opacity="0.4"/>
+  <circle cx="200" cy="110" r="35" fill="#FEF08A"/>
+  <!-- Green Meditative Lawn -->
+  <rect y="170" width="400" height="80" fill="#166534"/>
+  <!-- Meditating Student Silhouette (Padmasana) -->
+  <g transform="translate(200, 150)" fill="#FFFFFF">
+    <circle cx="0" cy="-45" r="12"/>
+    <path d="M -12,-30 C -20,-15 -25,0 -20,12 L 20,12 C 25,0 20,-15 12,-30 Z"/>
+    <!-- Folded Legs -->
+    <path d="M -35,16 Q 0,8 35,16 Q 0,22 -35,16 Z"/>
+    <!-- Hands in Gyan Mudra -->
+    <circle cx="-25" cy="4" r="4"/>
+    <circle cx="25" cy="4" r="4"/>
+  </g>
+  <!-- Lotus Flower Symbol -->
+  <g transform="translate(200, 80)" fill="#FFFFFF" opacity="0.8">
+    <path d="M 0,0 C -15,-20 0,-35 0,-35 C 0,-35 15,-20 0,0 Z"/>
+    <path d="M 0,0 C -25,-12 -25,-25 -25,-25 C -25,-25 -10,-15 0,0 Z"/>
+    <path d="M 0,0 C 25,-12 25,-25 25,-25 C 25,-25 10,-15 0,0 Z"/>
+  </g>
+  <!-- Badge -->
+  <rect x="90" y="205" width="220" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    INTERNATIONAL YOGA &amp; WELLNESS
+  </text>
+</svg>

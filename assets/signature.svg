@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="100%" height="100%">
+  <!-- Artistic cursive fountain pen signature in dark blue ink -->
+  <path d="M 20,50 Q 35,20 45,45 Q 55,60 65,30 Q 75,55 85,35 Q 95,15 105,45 Q 115,55 125,35 Q 140,25 155,50 Q 170,60 185,40 Q 200,30 215,45 Q 225,50 230,40" 
+        fill="none" stroke="#1E3A8A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flourish underline -->
+  <path d="M 30,58 Q 110,68 220,52" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 50,65 Q 130,73 200,60" fill="none" stroke="#1E3A8A" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Name text below signature -->
+  <text x="120" y="76" font-family="'Poppins', sans-serif" font-weight="700" font-size="7.5" fill="#1E3A8A" text-anchor="middle" letter-spacing="1">
+    (AJIT KUMAR THAKUR)
+  </text>
+</svg>

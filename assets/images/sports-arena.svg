@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgSport" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="60%" stop-color="#C2410C"/>
+      <stop offset="100%" stop-color="#9A3412"/>
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bgSport)"/>
+  <rect y="120" width="400" height="130" fill="url(#grassGrad)"/>
+
+  <!-- Running track lines -->
+  <line x1="0" y1="130" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 6"/>
+  <line x1="0" y1="150" x2="400" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Sports Equipment Group -->
+  <!-- Cricket Bat & Ball -->
+  <g transform="translate(60, 70)">
+    <polygon points="30,10 40,8 60,75 50,78" fill="#FDE047" stroke="#CA8A04" stroke-width="1.5"/>
+    <rect x="25" y="2" width="7" height="18" rx="2" fill="#FFFFFF" stroke="#000" stroke-width="1" transform="rotate(-20 25 2)"/>
+    <circle cx="70" cy="80" r="12" fill="#DC2626" stroke="#B91C1C" stroke-width="2"/>
+    <path d="M 64,72 Q 70,80 64,88" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  </g>
+
+  <!-- Football / Soccer -->
+  <g transform="translate(160, 50)">
+    <circle cx="40" cy="50" r="32" fill="#FFFFFF" stroke="#0F172A" stroke-width="3"/>
+    <polygon points="40,32 49,39 46,50 34,50 31,39" fill="#0F172A"/>
+    <line x1="40" y1="32" x2="40" y2="20" stroke="#0F172A" stroke-width="2"/>
+    <line x1="49" y1="39" x2="62" y2="35" stroke="#0F172A" stroke-width="2"/>
+    <line x1="46" y1="50" x2="58" y2="62" stroke="#0F172A" stroke-width="2"/>
+    <line x1="34" y1="50" x2="22" y2="62" stroke="#0F172A" stroke-width="2"/>
+    <line x1="31" y1="39" x2="18" y2="35" stroke="#0F172A" stroke-width="2"/>
+  </g>
+
+  <!-- Basketball & Badminton Racket -->
+  <g transform="translate(260, 60)">
+    <circle cx="50" cy="50" r="26" fill="#F97316" stroke="#000" stroke-width="2"/>
+    <path d="M 24,50 L 76,50 M 50,24 L 50,76" stroke="#000" stroke-width="2"/>
+    <ellipse cx="50" cy="50" rx="15" ry="26" fill="none" stroke="#000" stroke-width="2"/>
+    <!-- Badminton racket behind -->
+    <ellipse cx="90" cy="35" rx="18" ry="24" fill="none" stroke="#38BDF8" stroke-width="3"/>
+    <line x1="90" y1="59" x2="90" y2="105" stroke="#38BDF8" stroke-width="4"/>
+  </g>
+
+  <!-- Badge -->
+  <rect x="100" y="205" width="200" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    SPORTS ARENA &amp; FITNESS
+  </text>
+</svg>

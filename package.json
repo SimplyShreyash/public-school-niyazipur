@@ -1,0 +1,20 @@
+{
+  "name": "public-school-niyazipur-arjunpur",
+  "version": "1.0.0",
+  "description": "Official Website for Public School, Niyazipur, Arjunpur. Administered by Shri Ajit Kumar Thakur. Inspired by Narayana Group of Schools.",
+  "scripts": {
+    "start": "npx live-server --port=5500",
+    "serve": "node server.js",
+    "dev": "npx live-server --port=5500 --watch=."
+  },
+  "keywords": [
+    "school-website",
+    "public-school",
+    "niyazipur",
+    "arjunpur",
+    "ajit-kumar-thakur",
+    "narayana-schools"
+  ],
+  "author": "Public School Niyazipur Arjunpur",
+  "license": "ISC"
+}

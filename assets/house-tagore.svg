@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tagoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+  </defs>
+  <path d="M 15,10 Q 75,-5 135,10 Q 140,85 75,145 Q 10,85 15,10 Z" fill="url(#tagoreGrad)" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="75" cy="55" r="30" fill="#450A0A" stroke="#FCA5A5" stroke-width="2"/>
+  <!-- Quill pen / Lyre symbol for Rabindranath Tagore -->
+  <g transform="translate(75, 55)">
+    <path d="M -15,18 Q -5,-15 15,-20 Q 5,0 -15,18 Z" fill="#FFFFFF"/>
+    <line x1="-15" y1="18" x2="15" y2="-20" stroke="#EF4444" stroke-width="1.5"/>
+  </g>
+  <text x="75" y="112" font-family="'Montserrat', sans-serif" font-weight="900" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    TAGORE
+  </text>
+  <text x="75" y="126" font-family="'Poppins', sans-serif" font-weight="700" font-size="8" fill="#FECACA" text-anchor="middle" letter-spacing="0.5">
+    ARTS &amp; ETHICS
+  </text>
+</svg>

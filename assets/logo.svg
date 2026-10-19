@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066" />
+      <stop offset="40%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E387A" />
+      <stop offset="50%" stop-color="#082046" />
+      <stop offset="100%" stop-color="#020E24" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#0B1B3D" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="50%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Golden Ring with Star Embellishments -->
+  <circle cx="250" cy="250" r="230" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="8" filter="url(#shadow)"/>
+  <circle cx="250" cy="250" r="215" fill="none" stroke="#FBBF24" stroke-width="2" stroke-dasharray="6,4" opacity="0.8"/>
+
+  <!-- Circular Outer Text Path -->
+  <path id="textCircleTop" d="M 70,250 A 180,180 0 1,1 430,250" fill="none" />
+  <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="21" fill="#FFFFFF" letter-spacing="3.8">
+    <textPath href="#textCircleTop" startOffset="50%" text-anchor="middle">
+      ★ PUBLIC SCHOOL ★ NIYAZIPUR, ARJUNPUR ★
+    </textPath>
+  </text>
+
+  <!-- Bottom Circular Text -->
+  <path id="textCircleBottom" d="M 425,260 A 175,175 0 0,1 75,260" fill="none" />
+  <text font-family="'Poppins', 'Arial', sans-serif" font-weight="700" font-size="14.5" fill="#FBBF24" letter-spacing="3">
+    <textPath href="#textCircleBottom" startOffset="50%" text-anchor="middle">
+      ADMINISTERED BY AJIT KUMAR THAKUR
+    </textPath>
+  </text>
+
+  <!-- Inner Gold Laurel Border Ring -->
+  <circle cx="250" cy="250" r="145" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="6"/>
+
+  <!-- Heraldic Shield in Center -->
+  <g transform="translate(150, 150)">
+    <!-- Shield Outline -->
+    <path d="M 20,15 Q 100,-5 180,15 Q 185,110 100,185 Q 15,110 20,15 Z" 
+          fill="#082046" stroke="url(#goldGrad)" stroke-width="4" filter="url(#shadow)"/>
+
+    <!-- Rising Sun -->
+    <path d="M 60,75 A 40,40 0 0,1 140,75 Z" fill="url(#sunGrad)"/>
+    <!-- Sun Rays -->
+    <line x1="100" y1="30" x2="100" y2="18" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="72" y1="42" x2="60" y2="30" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="128" y1="42" x2="140" y2="30" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="52" y1="65" x2="38" y2="60" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="148" y1="65" x2="162" y2="60" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Open Book of Knowledge -->
+    <g transform="translate(45, 75)">
+      <!-- Left Page -->
+      <path d="M 55,20 Q 30,10 5,22 L 5,60 Q 30,48 55,58 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+      <!-- Right Page -->
+      <path d="M 55,20 Q 80,10 105,22 L 105,60 Q 80,48 55,58 Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+      <!-- Spine -->
+      <line x1="55" y1="18" x2="55" y2="59" stroke="#D97706" stroke-width="3"/>
+      <!-- Book Lines -->
+      <line x1="15" y1="30" x2="45" y2="25" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="15" y1="38" x2="45" y2="33" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="15" y1="46" x2="45" y2="41" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="65" y1="25" x2="95" y2="30" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="65" y1="33" x2="95" y2="38" stroke="#94A3B8" stroke-width="2"/>
+      <line x1="65" y1="41" x2="95" y2="46" stroke="#94A3B8" stroke-width="2"/>
+    </g>
+
+    <!-- Flaming Torch of Wisdom -->
+    <g transform="translate(88, 120)">
+      <path d="M 12,25 L 8,45 Q 12,50 16,45 L 12,25 Z" fill="url(#goldGrad)"/>
+      <ellipse cx="12" cy="24" rx="9" ry="4" fill="#F59E0B"/>
+      <!-- Flame -->
+      <path d="M 12,5 Q 18,15 12,22 Q 6,15 12,5 Z" fill="#EF4444" filter="url(#glow)"/>
+      <path d="M 12,8 Q 15,15 12,20 Q 9,15 12,8 Z" fill="#FBBF24"/>
+    </g>
+
+    <!-- 3 Academic Stars Inside Shield -->
+    <polygon points="100,10 102,15 107,15 103,18 105,23 100,20 95,23 97,18 93,15 98,15" fill="#FFE066"/>
+    <polygon points="60,20 62,25 67,25 63,28 65,33 60,30 55,33 57,28 53,25 58,25" fill="#FFE066"/>
+    <polygon points="140,20 142,25 147,25 143,28 145,33 140,30 135,33 137,28 133,25 138,25" fill="#FFE066"/>
+  </g>
+
+  <!-- Golden Laurel Wreath Leaves on Sides -->
+  <g fill="url(#goldGrad)" opacity="0.95">
+    <!-- Left Leaves -->
+    <path d="M 75,220 C 60,230 65,250 82,245 C 75,235 80,225 75,220 Z"/>
+    <path d="M 72,185 C 58,195 62,215 80,210 C 72,200 78,190 72,185 Z"/>
+    <path d="M 78,255 C 65,265 70,285 88,278 C 80,270 85,260 78,255 Z"/>
+    <path d="M 90,290 C 80,305 90,320 105,310 C 95,302 98,295 90,290 Z"/>
+    
+    <!-- Right Leaves -->
+    <path d="M 425,220 C 440,230 435,250 418,245 C 425,235 420,225 425,220 Z"/>
+    <path d="M 428,185 C 442,195 438,215 420,210 C 428,200 422,190 428,185 Z"/>
+    <path d="M 422,255 C 435,265 430,285 412,278 C 420,270 415,260 422,255 Z"/>
+    <path d="M 410,290 C 420,305 410,320 395,310 C 405,302 402,295 410,290 Z"/>
+  </g>
+
+  <!-- Motto Banner Ribbon across the bottom -->
+  <g transform="translate(250, 415)">
+    <!-- Ribbon Shadow/Fold -->
+    <path d="M -170,12 L -140,-15 L -140,25 Z" fill="#92400E"/>
+    <path d="M 170,12 L 140,-15 L 140,25 Z" fill="#92400E"/>
+    <!-- Ribbon Tails -->
+    <polygon points="-180,28 -140,15 -140,38 -175,48 -180,28" fill="#D97706"/>
+    <polygon points="180,28 140,15 140,38 175,48 180,28" fill="#D97706"/>
+    <!-- Center Ribbon Body -->
+    <path d="M -150,0 Q 0,-20 150,0 L 140,34 Q 0,16 -140,34 Z" fill="url(#goldGrad)" stroke="#B45309" stroke-width="2" filter="url(#shadow)"/>
+    <!-- Motto Text -->
+    <text y="20" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="13" fill="#0A192F" text-anchor="middle" letter-spacing="2.5">
+      DISCIPLINE • EXCELLENCE • INTEGRITY
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kalamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield -->
+  <path d="M 15,10 Q 75,-5 135,10 Q 140,85 75,145 Q 10,85 15,10 Z" fill="url(#kalamGrad)" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="75" cy="55" r="30" fill="#0C4A6E" stroke="#38BDF8" stroke-width="2"/>
+  <!-- Rocket / Missile symbol for Dr. APJ Abdul Kalam -->
+  <g transform="translate(75, 55)">
+    <polygon points="0,-22 8,-5 0,-8 -8,-5" fill="#FFFFFF"/>
+    <rect x="-4" y="-7" width="8" height="20" rx="1" fill="#FFFFFF"/>
+    <polygon points="-4,13 -10,18 -4,15" fill="#EF4444"/>
+    <polygon points="4,13 10,18 4,15" fill="#EF4444"/>
+    <polygon points="0,13 3,24 0,20 -3,24" fill="#FBBF24"/>
+  </g>
+  <text x="75" y="112" font-family="'Montserrat', sans-serif" font-weight="900" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    KALAM
+  </text>
+  <text x="75" y="126" font-family="'Poppins', sans-serif" font-weight="700" font-size="8" fill="#BAE6FD" text-anchor="middle" letter-spacing="0.5">
+    INNOVATION
+  </text>
+</svg>

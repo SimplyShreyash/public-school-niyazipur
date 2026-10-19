@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ramanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </linearGradient>
+  </defs>
+  <path d="M 15,10 Q 75,-5 135,10 Q 140,85 75,145 Q 10,85 15,10 Z" fill="url(#ramanGrad)" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="75" cy="55" r="30" fill="#022C22" stroke="#6EE7B7" stroke-width="2"/>
+  <!-- Prism / Light scattering symbol for Sir CV Raman -->
+  <polygon points="75,38 95,72 55,72" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+  <line x1="40" y1="55" x2="65" y2="55" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="85" y1="52" x2="108" y2="42" stroke="#FDE047" stroke-width="1.8"/>
+  <line x1="85" y1="55" x2="110" y2="52" stroke="#38BDF8" stroke-width="1.8"/>
+  <line x1="85" y1="58" x2="108" y2="62" stroke="#F43F5E" stroke-width="1.8"/>
+  <text x="75" y="112" font-family="'Montserrat', sans-serif" font-weight="900" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    RAMAN
+  </text>
+  <text x="75" y="126" font-family="'Poppins', sans-serif" font-weight="700" font-size="8" fill="#A7F3D0" text-anchor="middle" letter-spacing="0.5">
+    DISCOVERY
+  </text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgLib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333EA"/>
+      <stop offset="100%" stop-color="#6B21A8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bgLib)"/>
+  <polygon points="0,185 400,185 400,250 0,250" fill="#3B0764"/>
+
+  <!-- Bookshelf -->
+  <rect x="60" y="30" width="280" height="155" rx="6" fill="#475569" stroke="#E2E8F0" stroke-width="3"/>
+  <rect x="70" y="40" width="260" height="40" fill="#1E293B"/>
+  <rect x="70" y="90" width="260" height="40" fill="#1E293B"/>
+  <rect x="70" y="140" width="260" height="35" fill="#1E293B"/>
+
+  <!-- Books on shelves -->
+  <!-- Shelf 1 -->
+  <g transform="translate(80, 42)">
+    <rect x="0" y="5" width="12" height="32" rx="2" fill="#EF4444"/>
+    <rect x="15" y="8" width="15" height="29" rx="2" fill="#F59E0B"/>
+    <rect x="33" y="2" width="18" height="35" rx="2" fill="#10B981"/>
+    <rect x="54" y="6" width="10" height="31" rx="2" fill="#38BDF8"/>
+    <rect x="67" y="10" width="14" height="27" rx="2" fill="#F472B6"/>
+    <rect x="84" y="3" width="16" height="34" rx="2" fill="#A855F7"/>
+    <rect x="103" y="7" width="12" height="30" rx="2" fill="#FBBF24"/>
+    <rect x="118" y="4" width="20" height="33" rx="2" fill="#6366F1"/>
+    <rect x="141" y="9" width="14" height="28" rx="2" fill="#14B8A6"/>
+    <rect x="158" y="5" width="16" height="32" rx="2" fill="#FB923C"/>
+  </g>
+
+  <!-- Shelf 2 -->
+  <g transform="translate(80, 92)">
+    <rect x="0" y="4" width="20" height="33" rx="2" fill="#3B82F6"/>
+    <rect x="23" y="8" width="14" height="29" rx="2" fill="#EC4899"/>
+    <rect x="40" y="2" width="16" height="35" rx="2" fill="#FACC15"/>
+    <rect x="59" y="6" width="12" height="31" rx="2" fill="#22C55E"/>
+    <rect x="74" y="10" width="18" height="27" rx="2" fill="#8B5CF6"/>
+    <rect x="95" y="5" width="15" height="32" rx="2" fill="#06B6D4"/>
+    <rect x="113" y="3" width="12" height="34" rx="2" fill="#F43F5E"/>
+  </g>
+
+  <!-- Table with reading lamp & open book -->
+  <g transform="translate(140, 165)">
+    <rect x="0" y="10" width="120" height="15" rx="2" fill="#E2E8F0"/>
+    <path d="M 45,5 Q 60,0 75,5 L 75,12 Q 60,7 45,12 Z" fill="#FFFFFF"/>
+    <!-- Lamp -->
+    <path d="M 20,10 L 25,2 L 35,2 L 30,10 Z" fill="#FBBF24"/>
+    <line x1="25" y1="2" x2="15" y2="-12" stroke="#64748B" stroke-width="2"/>
+    <path d="M 10,-12 L 20,-20 L 5,-20 Z" fill="#F59E0B"/>
+  </g>
+
+  <!-- Badge -->
+  <rect x="90" y="205" width="220" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    DIGITAL &amp; PRINT LIBRARY
+  </text>
+</svg>

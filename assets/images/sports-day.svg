@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sportsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="60%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#sportsGrad)"/>
+  <!-- Podium for 1st, 2nd, 3rd -->
+  <g transform="translate(130, 80)">
+    <!-- 2nd place -->
+    <rect x="0" y="45" width="45" height="55" fill="#94A3B8"/>
+    <text x="22" y="75" font-family="'Montserrat', sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle">2</text>
+    <!-- 1st place -->
+    <rect x="45" y="25" width="50" height="75" fill="#FBBF24"/>
+    <text x="70" y="60" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#061A40" text-anchor="middle">1</text>
+    <circle cx="70" cy="10" r="12" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+    <polygon points="70,3 72,8 77,8 73,11 75,16 70,13 65,16 67,11 63,8 68,8" fill="#FFFFFF"/>
+    <!-- 3rd place -->
+    <rect x="95" y="60" width="45" height="40" fill="#B45309"/>
+    <text x="117" y="85" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" text-anchor="middle">3</text>
+  </g>
+  <!-- Running Track Ribbons -->
+  <path d="M 0,185 Q 200,165 400,185" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-dasharray="15,10"/>
+  <!-- Badge -->
+  <rect x="90" y="205" width="220" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    ANNUAL ATHLETICS &amp; SPORTS MEET
+  </text>
+</svg>

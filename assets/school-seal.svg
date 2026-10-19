@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Circular Rubber Stamp / Seal in Violet-Blue Ink -->
+  <g stroke="#1D4ED8" fill="none" opacity="0.88" transform="rotate(-6 100 100)">
+    <!-- Outer Rings -->
+    <circle cx="100" cy="100" r="92" stroke-width="4"/>
+    <circle cx="100" cy="100" r="85" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <circle cx="100" cy="100" r="62" stroke-width="2"/>
+
+    <!-- Circular Top & Bottom Text -->
+    <path id="sealTop" d="M 28,100 A 72,72 0 1,1 172,100" />
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="11.5" fill="#1D4ED8" letter-spacing="2">
+      <textPath href="#sealTop" startOffset="50%" text-anchor="middle">
+        ★ PUBLIC SCHOOL ★
+      </textPath>
+    </text>
+
+    <path id="sealBottom" d="M 172,100 A 72,72 0 0,1 28,100" />
+    <text font-family="'Poppins', sans-serif" font-weight="800" font-size="9" fill="#1D4ED8" letter-spacing="1.5">
+      <textPath href="#sealBottom" startOffset="50%" text-anchor="middle">
+        NIYAZIPUR, ARJUNPUR
+      </textPath>
+    </text>
+
+    <!-- Center Content -->
+    <text x="100" y="92" font-family="'Poppins', sans-serif" font-weight="700" font-size="9" fill="#1D4ED8" text-anchor="middle">
+      ADMINISTERED BY
+    </text>
+    <text x="100" y="106" font-family="'Montserrat', sans-serif" font-weight="900" font-size="10.5" fill="#1D4ED8" text-anchor="middle">
+      AJIT KUMAR THAKUR
+    </text>
+    <text x="100" y="120" font-family="'Poppins', sans-serif" font-weight="600" font-size="8.5" fill="#1D4ED8" text-anchor="middle">
+      ★ VERIFIED &amp; APPROVED ★
+    </text>
+  </g>
+</svg>

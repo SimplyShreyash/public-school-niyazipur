@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aryaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <path d="M 15,10 Q 75,-5 135,10 Q 140,85 75,145 Q 10,85 15,10 Z" fill="url(#aryaGrad)" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="75" cy="55" r="30" fill="#78350F" stroke="#FDE047" stroke-width="2"/>
+  <!-- Zero / Infinity / Geometry symbol for Aryabhata -->
+  <text x="75" y="65" font-family="'Montserrat', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle">
+    0
+  </text>
+  <text x="75" y="112" font-family="'Montserrat', sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+    ARYABHATA
+  </text>
+  <text x="75" y="126" font-family="'Poppins', sans-serif" font-weight="700" font-size="8" fill="#FEF08A" text-anchor="middle" letter-spacing="0.5">
+    MATHEMATICS
+  </text>
+</svg>

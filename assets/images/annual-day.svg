@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="annualGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C026D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#annualGrad)"/>
+  <!-- Stage & Curtains -->
+  <path d="M 0,0 L 70,0 Q 40,80 70,180 L 0,180 Z" fill="#991B1B"/>
+  <path d="M 400,0 L 330,0 Q 360,80 330,180 L 400,180 Z" fill="#991B1B"/>
+  <polygon points="0,170 400,170 400,250 0,250" fill="#3B0764"/>
+  <!-- Stage Lights & Spotlights -->
+  <polygon points="50,0 120,200 180,200 70,0" fill="#FEF08A" opacity="0.25"/>
+  <polygon points="350,0 280,200 220,200 330,0" fill="#FEF08A" opacity="0.25"/>
+  <!-- Performing Students on Stage -->
+  <circle cx="200" cy="110" r="16" fill="#FDE047"/>
+  <path d="M 185,126 L 215,126 L 225,180 L 175,180 Z" fill="#F43F5E"/>
+  <!-- Classical dance hands -->
+  <path d="M 185,135 Q 165,110 160,95" fill="none" stroke="#FDE047" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 215,135 Q 235,110 240,95" fill="none" stroke="#FDE047" stroke-width="4" stroke-linecap="round"/>
+  <!-- Festive Confetti & Musical Notes -->
+  <circle cx="110" cy="70" r="4" fill="#FBBF24"/>
+  <circle cx="290" cy="60" r="5" fill="#38BDF8"/>
+  <circle cx="150" cy="45" r="3" fill="#34D399"/>
+  <circle cx="250" cy="85" r="4" fill="#F472B6"/>
+  <!-- Badge -->
+  <rect x="90" y="205" width="220" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    ANNUAL DAY &amp; CULTURAL GALA
+  </text>
+</svg>

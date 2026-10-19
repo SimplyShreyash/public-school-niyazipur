@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgComp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bgComp)"/>
+  <polygon points="0,185 400,185 400,250 0,250" fill="#1E1B4B"/>
+  
+  <!-- Desk -->
+  <rect x="30" y="145" width="340" height="40" rx="3" fill="#64748B"/>
+
+  <!-- Multiple Computer Monitors (Left, Center, Right) -->
+  <!-- Left PC -->
+  <g transform="translate(50, 75)">
+    <rect x="0" y="0" width="75" height="52" rx="4" fill="#0F172A" stroke="#818CF8" stroke-width="2"/>
+    <rect x="5" y="5" width="65" height="42" rx="2" fill="#1E293B"/>
+    <text x="37" y="30" font-family="monospace" font-size="10" fill="#34D399" text-anchor="middle">&lt;/&gt;</text>
+    <rect x="33" y="52" width="9" height="15" fill="#334155"/>
+    <rect x="22" y="67" width="31" height="5" rx="2" fill="#334155"/>
+    <rect x="10" y="73" width="55" height="6" rx="2" fill="#CBD5E1"/>
+  </g>
+
+  <!-- Center Main PC -->
+  <g transform="translate(150, 55)">
+    <rect x="0" y="0" width="100" height="70" rx="6" fill="#0F172A" stroke="#FBBF24" stroke-width="3"/>
+    <rect x="6" y="6" width="88" height="58" rx="3" fill="#0284C7"/>
+    <!-- Code on screen -->
+    <line x1="15" y1="20" x2="60" y2="20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="30" x2="80" y2="30" stroke="#FDE047" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="25" y1="40" x2="70" y2="40" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="50" x2="50" y2="50" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="44" y="70" width="12" height="20" fill="#334155"/>
+    <rect x="30" y="90" width="40" height="6" rx="2" fill="#334155"/>
+    <rect x="20" y="98" width="60" height="7" rx="2" fill="#CBD5E1"/>
+    <circle cx="88" cy="101" r="4" fill="#E2E8F0"/>
+  </g>
+
+  <!-- Right PC -->
+  <g transform="translate(275, 75)">
+    <rect x="0" y="0" width="75" height="52" rx="4" fill="#0F172A" stroke="#818CF8" stroke-width="2"/>
+    <rect x="5" y="5" width="65" height="42" rx="2" fill="#1E293B"/>
+    <circle cx="37" cy="26" r="12" fill="none" stroke="#F472B6" stroke-width="2"/>
+    <rect x="33" y="52" width="9" height="15" fill="#334155"/>
+    <rect x="22" y="67" width="31" height="5" rx="2" fill="#334155"/>
+    <rect x="10" y="73" width="55" height="6" rx="2" fill="#CBD5E1"/>
+  </g>
+
+  <!-- High-Speed WiFi icon in corner -->
+  <path d="M 350,30 A 20,20 0 0,0 380,30" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 355,38 A 12,12 0 0,0 375,38" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="365" cy="46" r="2.5" fill="#FBBF24"/>
+
+  <!-- Badge -->
+  <rect x="100" y="205" width="200" height="30" rx="15" fill="#FBBF24"/>
+  <text x="200" y="225" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#0F172A" text-anchor="middle">
+    AI &amp; COMPUTER SCIENCE LAB
+  </text>
+</svg>
